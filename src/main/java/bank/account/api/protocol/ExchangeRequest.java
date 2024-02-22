@@ -3,11 +3,16 @@ package bank.account.api.protocol;
 import bank.shared.CurrencyCode;
 import lombok.Data;
 
-import javax.validation.constraints.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Data
-public class ExchangeRequest {
+public class ExchangeRequest implements Serializable {
+
+    private static final long serialVersionUID = 5524893018041849092L;
 
     @NotBlank
     private String pesel;

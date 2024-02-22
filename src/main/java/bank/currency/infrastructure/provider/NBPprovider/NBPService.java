@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
+import javax.persistence.EntityNotFoundException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Arrays;
@@ -38,7 +39,7 @@ public class NBPService implements ProviderService {
             return response;
         } catch (RestClientException e) {
             log.error("Error while getting rate for {}.", target, e);
-            throw new ProviderServiceException();
+            throw new EntityNotFoundException("Today's exchange rate is unavailable");
         } catch (URISyntaxException e) {
             throw new RuntimeException(e);
         }

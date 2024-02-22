@@ -3,11 +3,15 @@ package bank.account.api.protocol;
 import bank.shared.CurrencyCode;
 import lombok.Data;
 
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Data
-public class AccountRequest {
+public class AccountRequest implements Serializable {
+
+    private static final long serialVersionUID = -3137249684522196459L;
 
     @NotBlank
     private String name;
