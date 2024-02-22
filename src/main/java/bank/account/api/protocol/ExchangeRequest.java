@@ -3,40 +3,29 @@ package bank.account.api.protocol;
 import bank.shared.CurrencyCode;
 import lombok.Data;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
+import javax.validation.constraints.*;
 import java.math.BigDecimal;
 
 @Data
 public class ExchangeRequest {
 
-    @NotNull
-    @Min(9)
-    @Max(9)
-    @Pattern(regexp = "\\d")
+    @NotBlank
     private String pesel;
 
-    @NotNull
-    @Min(10)
-    @Max(10)
-    @Pattern(regexp = "\\d")
+    @NotBlank
     private String sourceAccount;
 
-    @NotNull
+    @NotNull(message = "currencyCode cannot be null")
     private CurrencyCode sourceCurrency;
 
-    @NotNull
-    @Min(10)
-    @Max(10)
-    @Pattern(regexp = "\\d")
+    @NotBlank
     private String targetAccount;
 
-    @NotNull
+    @NotNull(message = "currencyCode cannot be null")
     private CurrencyCode targetCurrency;
 
     @NotNull
+    @Min(1)
     private BigDecimal targetValue;
 
     public boolean toPln(){

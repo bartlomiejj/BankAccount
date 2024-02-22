@@ -16,12 +16,9 @@ public class AccountRequest {
     private String surname;
 
     @NotBlank
-    @Min(9)
-    @Max(9)
-    @Pattern(regexp = "\\d")
     private String pesel;
 
-    @NotBlank
+    @NotNull(message = "currencyCode cannot be null")
     private CurrencyCode currencyCode;
 
     @NotNull

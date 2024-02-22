@@ -10,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestControllerAdvice
 @RequiredArgsConstructor
 @RequestMapping("/api/account")
@@ -18,7 +20,7 @@ public class AccountController {
     private final AccountFacade accountFacade;
 
     @PostMapping
-    public ResponseEntity<CustomerResponse> create(@RequestBody AccountRequest accountRequest){
+    public ResponseEntity<CustomerResponse> create(@Valid @RequestBody AccountRequest accountRequest){
         CustomerDto customerDto = accountFacade.create(accountRequest);
 
         return ResponseEntity.ok(AccountMapper.INSTANCE.mapToResponse(customerDto));

@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import javax.validation.Valid;
+
 @RestControllerAdvice
 @RequiredArgsConstructor
 @RequestMapping("/api/exchange")
@@ -20,7 +22,7 @@ public class ExchangeController {
     private final AccountFacade accountFacade;
 
     @PostMapping
-    public ResponseEntity<CustomerResponse> exchange(@RequestBody ExchangeRequest exchangeRequest){
+    public ResponseEntity<CustomerResponse> exchange(@Valid @RequestBody ExchangeRequest exchangeRequest){
         CustomerDto customerDto = accountFacade.exchange(exchangeRequest);
 
         return ResponseEntity.ok(AccountMapper.INSTANCE.mapToResponse(customerDto));
