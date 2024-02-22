@@ -15,17 +15,17 @@ public class ExchangeRequest {
     @NotBlank
     private String sourceAccount;
 
-    @NotNull(message = "currencyCode cannot be null")
+    @NotNull(message = "sourceCurrency cannot be null")
     private CurrencyCode sourceCurrency;
 
     @NotBlank
     private String targetAccount;
 
-    @NotNull(message = "currencyCode cannot be null")
+    @NotNull(message = "targetCurrency cannot be null")
     private CurrencyCode targetCurrency;
 
     @NotNull
-    @Min(1)
+    @Min(value = 1, message = "minimum exchange value is 1")
     private BigDecimal targetValue;
 
     public boolean toPln(){
