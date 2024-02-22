@@ -7,4 +7,5 @@ interface CurrencyService {
     BigDecimal getRate(String target);
 
     void refresh();
+
 }

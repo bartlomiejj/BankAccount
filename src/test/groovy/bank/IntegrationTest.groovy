@@ -24,7 +24,8 @@ class IntegrationTest extends Specification {
     @Autowired
     ObjectMapper objectMapper
 
-    RestTemplate restTemplate = Stub(RestTemplate.class)
+    @MockBean
+    RestTemplate restTemplate
 
     def setupSpec() {
         final PostgreSQLContainer postgresContainer = new PostgreSQLContainer(DockerImageName.parse("postgres:latest"))

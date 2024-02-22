@@ -17,7 +17,7 @@ public class CurrencyController {
 
     @GetMapping("/{code}")
     public ResponseEntity<BigDecimal> calculateCurrency(@PathVariable("code") String code) {
-        return ResponseEntity.ok(currencyFacade.getRate(CurrencyCode.valueOf(code)));
+        return ResponseEntity.ok(currencyFacade.getRate(CurrencyCode.valueOf(code.toUpperCase())));
     }
 
     @PutMapping("/refresh")
