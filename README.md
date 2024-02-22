@@ -96,10 +96,10 @@ docker-compose up
       ]
       }`
 ### 3. Currency exchange - /api/exchange <br/>
-- ** POST ** - exchange currency based on mid rate <br/>
+- ** PUT ** - exchange currency based on mid rate <br/>
    Example curl: <br/>
    ```bash
-  curl --request POST \
+  curl --request PUT \
    --url http://localhost:8080/api/exchange \
    --header 'Content-Type: application/json' \
    --data '{

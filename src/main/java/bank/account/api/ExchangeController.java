@@ -7,10 +7,7 @@ import bank.account.domain.AccountMapper;
 import bank.account.domain.dto.CustomerDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -21,7 +18,7 @@ public class ExchangeController {
 
     private final AccountFacade accountFacade;
 
-    @PostMapping
+    @PutMapping
     public ResponseEntity<CustomerResponse> exchange(@Valid @RequestBody ExchangeRequest exchangeRequest){
         CustomerDto customerDto = accountFacade.exchange(exchangeRequest);
 
