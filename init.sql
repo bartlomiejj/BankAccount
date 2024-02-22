@@ -1,1 +1,0 @@
-CREATE DATABASE bank_account IF NOT EXISTS;

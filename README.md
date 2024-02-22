@@ -2,26 +2,28 @@
 
 ## RUN APP
 
-docker-compose build 
+mvn clean install -DskipTests
+
+docker-compose build
 
 docker-compose up
 
 ## TODO
-1. Fix scale
-2. Exception handler
-3. Custom exceptions
-4. Introduce bid/ask rate, instead of mid
-5. Test coverage
-6. Refactor exchange service to base on DTO, instead of entities
-7. Enable validators
-8. Introduce exchange type where the user can decide to, e.g., buy 1 USD or sell 10 PLN for USD.
-9. Format readme
+1. Exception handler
+2. Custom exceptions
+3. Introduce bid/ask rate, instead of mid
+4. Test coverage
+5. Refactor exchange service to base on DTO, instead of entities
+6. Enable validators
+7. Introduce exchange type where the user can decide to, e.g., buy 1 USD or sell 10 PLN for USD.
+8. Format readme
 
 ## Services:
 
 ### 1. Currency Rate Provider - /api/currency
 
-- **PUT /refresh** - Downloads currencies from NBP and saves in the DB. Refresh on every application startup either.
+- **PUT /refresh** - Downloads currencies from NBP and saves in the DB. 
+- Refresh meant to be scheduled by an external application.
 
   Example curl:
    ```bash

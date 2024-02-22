@@ -11,4 +11,4 @@ COPY target/Bank-1.jar /app/Bank-1.jar
 EXPOSE 8080
 
 # Command to run the application
-CMD ["java", "-jar", "Bank-1.jar", "--spring.datasource.url=jdbc:postgresql://postgres:5433/postgres"]
+CMD ["java", "-jar", "Bank-1.jar", "--spring.datasource.url=jdbc:postgresql://postgres:5432/postgres"]
