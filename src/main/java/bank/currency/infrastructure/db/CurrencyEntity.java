@@ -8,7 +8,7 @@ import java.util.Date;
 
 @Data
 @Entity(name = "currency")
-@Table(name = "customer", indexes = {
+@Table(name = "currency", indexes = {
         @Index(name = "code", columnList = "code", unique = true)
 })
 public class CurrencyEntity {
